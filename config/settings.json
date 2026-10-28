@@ -1,0 +1,66 @@
+{
+  "app": {
+    "dry_run": true,
+    "global_paused": false,
+    "log_level": "INFO"
+  },
+  "reply": {
+    "mode": "manual",
+    "min_confidence": 0.9,
+    "max_length": 120,
+    "default_on_uncertain": "human_review",
+    "only_media": false,
+    "text_simple": true,
+    "text_max_chars": 20,
+    "auto_max_risk": "R1",
+    "daily_limit": 20,
+    "min_gap_minutes": 5,
+    "allowlisted_contacts": {
+      "wechat": [],
+      "douyin": []
+    }
+  },
+  "risk": {
+    "require_human_for": ["R1", "R2", "R3"],
+    "always_review_topics": [
+      "major_relationship_decisions",
+      "money",
+      "privacy",
+      "major_promises",
+      "intense_conflict",
+      "crisis"
+    ]
+  },
+  "video": {
+    "require_quote_verification": true,
+    "if_quote_uncertain": "human_review",
+    "if_only_thumbnail_available": "partial_understanding"
+  },
+  "memory": {
+    "recent_turns": 20,
+    "use_long_term": true,
+    "isolate_by_contact": true,
+    "link_groups": []
+  },
+  "recovery": {
+    "max_analysis_retries": 2,
+    "max_ui_retries": 2,
+    "resend_if_status_unknown": false,
+    "pause_on_login_challenge": true,
+    "circuit_breaker_enabled": true,
+    "circuit_breaker_threshold": 3
+  },
+  "llm": {
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "temperature": 0.8,
+    "max_tokens": 900,
+    "timeout_seconds": 30,
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "api_key_file": "config/secrets.local.json"
+  },
+  "paths": {
+    "db": "var/agent.db",
+    "media": "var/media"
+  }
+}

@@ -1,0 +1,17 @@
+# 运行产物与私有配置
+var/
+logs/
+data/
+inbox/
+*.db
+*.db-journal
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 私有配置（真实联系人 / 密钥 / 画像）
+config/secrets.local.json
+config/settings.local.json
+config/persona.local.json
+config/relation_notes.json
+*.local.json
